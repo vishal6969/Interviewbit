@@ -1,0 +1,25 @@
+public class Solution {
+    public int maxArr(int[] A) {
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        int min1 = Integer.MAX_VALUE;
+        int max1 = Integer.MIN_VALUE;
+
+        for(int i = 1; i <= A.length; i++) {
+            if(A[i-1]+i <= min) {
+                min = A[i-1]+i;
+            }
+            if(A[i-1]+i >= max) {
+                max = A[i-1]+i;
+            }
+            if(A[i-1]-i <= min1) {
+                min1 = A[i-1]-i;
+            }
+            if(A[i-1]-i >= max1) {
+                max1 = A[i-1]-i;
+            }
+        }
+
+        return Math.max(max-min, max1-min1);
+    }
+}

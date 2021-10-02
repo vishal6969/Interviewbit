@@ -1,0 +1,31 @@
+public class Solution {
+    public int[] plusOne(int[] A) {
+        int a = 1;
+        int j = 0;
+        int index;
+        int[] ans;
+
+        for(int i = A.length-1; i >= 0; i--) {
+            int temp = A[i];
+            A[i] = (A[i]+a)%10;
+            a = (temp+a)/10;
+        }
+        if(a != 1){
+            while(j < A.length && A[j] == 0){
+                j++;
+            } 
+            ans = new int[A.length-j];
+            for(int i = j,k = 0;k < ans.length; k++,i++){
+                ans[k] = A[i];
+            }
+        }
+        else{
+            ans = new int[A.length+1];
+            ans[0] = 1;
+            for(int i = 1; i < ans.length; i++) {
+                ans[i] = 0;
+            }
+        }
+        return ans;
+    }
+}

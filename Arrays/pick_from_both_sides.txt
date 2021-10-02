@@ -1,0 +1,28 @@
+
+public class Solution {
+    public int solve(int[] A, int B) {
+        int tsum = 0;
+        int sum = 0;
+        int n = A.length;
+
+        for(int i = 0; i < n; i++) {
+            if(i < (n-B)) {
+                tsum += A[i];
+            }
+            sum += A[i];
+        }
+
+        int max = sum - tsum;
+
+        for(int i = 0, j = (n-B); j < n; i++,j++) {
+            tsum += A[j];
+            tsum -= A[i];
+
+            if((sum-tsum) > max) {
+                max = (sum-tsum);
+            }
+        }
+
+        return max;
+    }
+}

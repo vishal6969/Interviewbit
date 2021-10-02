@@ -1,0 +1,33 @@
+public class Solution {
+    public int solve(int[] A, int B) {
+       int c = 0;
+       int cur = 0;
+       int prev = 0;
+
+       while(cur < A.length) {
+           int index = cur + B-1;
+           prev = cur-B + 1;
+
+           if(prev < 0) {
+               prev = 0;
+           }
+
+           while(index >= prev && index < A.length) {
+               if(A[index] == 1){
+                   break;
+               }
+               index--;
+           }
+
+           if(index >= prev) {
+               c++;
+               cur = index+B;
+           }
+           else{
+               return -1;
+           }
+       }
+
+       return c;
+    }
+}
