@@ -1,0 +1,37 @@
+public class Solution {
+    public int[] solve(int[] A) {
+        int[] ans = new int[A.length];
+        int l = 0;
+        
+        while(l < A.length && A[l] < 0) {
+            l++;
+        }
+
+        int r = l;
+        int k = 0;
+        l = l - 1;
+
+        while(l >= 0 && r < A.length) {
+            if(A[l]*A[l] < A[r]*A[r]) {
+                ans[k++] = A[l]*A[l];
+                l--;
+            }
+            else {
+                ans[k++] = A[r]*A[r];
+                r++;
+            }
+        }
+
+        while(l >= 0) {
+            ans[k++] = A[l]*A[l];
+            l--;
+        }
+
+        while(r < A.length) {
+            ans[k++] = A[r]*A[r];
+            r++;
+        }
+
+        return ans;
+    }
+}
