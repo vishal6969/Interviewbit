@@ -1,0 +1,23 @@
+public class Solution {
+    public int solve(ArrayList<Integer> A) {
+
+        return maxHelp(0, A.size()-1, A) + minHelp(0, A.size()-1, A);
+    }
+
+    public int maxHelp(int l, int r, ArrayList<Integer> A) {
+        if(r-l <= 1) {
+            return Math.max(A.get(l), A.get(r));
+        } 
+        int m = (r+l)/2;
+
+        return Math.max(maxHelp(l, m, A), maxHelp(m+1, r, A));
+    }
+    public int minHelp (int l, int r, ArrayList<Integer> A) {
+        if(r-l <= 1) {
+            return Math.min(A.get(l), A.get(r));
+        } 
+        int m = (r+l)/2;
+
+        return Math.min(minHelp(l, m, A), minHelp(m+1, r, A));
+    }
+}
