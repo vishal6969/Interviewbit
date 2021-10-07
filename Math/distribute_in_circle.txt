@@ -1,0 +1,7 @@
+public class Solution {
+    public int solve(int A, int B, int C) {
+        A = A%B;
+
+        return (C+A-1)%B;
+    }
+}

@@ -1,0 +1,30 @@
+public class Solution {
+    public int isPalindrome(long A) {
+        int c = 0;
+        long temp = A;
+ 
+        if(A < 0) {
+            return 0;
+        }
+ 
+        while(temp != 0) {
+            temp = temp/10;
+            c++;
+        }
+        c--;  
+ 
+        while(A != 0) {
+            long a =(long) (A / Math.pow(10,c));
+            long b = A % 10;
+            A =(long) (A % Math.pow(10,c));
+            A = A / 10;
+ 
+        //    System.out.println(a+" "+b);
+            if(a != b) {
+                return 0;
+            }
+            c -= 2;
+        }
+        return 1;
+    }
+}

@@ -1,0 +1,25 @@
+public class Solution {
+    public ArrayList<Integer> primesum(int A) {
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        for(int i = 2; i <= A/2; i++) {
+            if(prime(i) && prime(A-i)) {
+                ans.add(i);
+                ans.add(A-i);
+                break;
+            }
+        }
+        return ans;
+    }
+    public boolean prime(int n) {
+        if(n == 2){
+            return true;
+        }
+        for(int i = 2; i <= Math.sqrt(n); i++) {
+            if(n%i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
