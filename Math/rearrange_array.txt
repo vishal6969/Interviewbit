@@ -1,0 +1,17 @@
+public class Solution {
+	public void arrange(ArrayList<Integer> a) {
+        int i = 0;
+        int n = a.size();
+        while(i < a.size()) {
+            int temp = a.get(i);
+            int temp1 = a.get(temp);
+            a.set(i, temp+(temp1%n)*n);
+            i++;
+        }
+        i = 0;
+        while(i < a.size()) {
+            a.set(i, a.get(i)/n);
+            i++;
+        }
+	}
+}

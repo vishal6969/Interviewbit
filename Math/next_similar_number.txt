@@ -1,0 +1,29 @@
+public class Solution {
+    public String solve(String A) {
+        char[] ch = A.toCharArray();
+        ArrayList<Integer> arr = new ArrayList<>();
+        boolean b = false;
+
+        for(int i = ch.length-1; i >=0; i--) {
+            int k = 0;
+            if(k < arr.size() && ch[i] < ch[arr.get(k)]) {
+
+                while(k < arr.size() && ch[i] < ch[arr.get(k)]){
+                    k++;
+                }
+
+                char temp = ch[arr.get(k-1)];
+                ch[arr.get(k-1)] = ch[i];
+                // System.out.println(temp +" " + ch[i]);
+                ch[i] = temp;
+                Arrays.sort(ch, i+1, ch.length);
+                b = true;
+                break;
+            }
+            else {
+                arr.add(0, i);
+            }
+        }
+        return b?String.valueOf(ch):"-1";
+    }
+}

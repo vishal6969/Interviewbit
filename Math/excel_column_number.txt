@@ -1,0 +1,13 @@
+public class Solution {
+    public int titleToNumber(String A) {
+        int n = 0;
+        int s = A.length(); 
+        for(int i = 0; i < s; i++) {
+            int temp = (A.charAt(s-i-1) - 'A')+1;
+            temp = (int)(temp*Math.pow(26, i));
+            n += temp;
+        }
+
+        return n;
+    }
+}
